@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: persistentVolume
+metadata:
+  name: opspv
+spec:
+  capacity:
+    storage: 20Gi
+  accessModes:
+  - ReadWriteMany
+  persistentVolumeClaim: Delete
+  nfs:
+    server: $ip #输入nfs对应的ip地址
+    path: /data01/k8s_volume
+
+---
+apiVersion: v1
+kind: persistentVolumeClaim
+metadata:
+  name: opspvc
+  namespace: jenkins-k8s
+spec:
+  accessModes:
+  - ReadWriteMany
+  resouces:
+    requests:
+      storage: 20Gi

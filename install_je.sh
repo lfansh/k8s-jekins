@@ -20,7 +20,7 @@ systemctl restart nfs
 #mount k8s_volume
 
 mkdir -p /data01/k8s_volume
-mount -t $ip/data01/k8s_volume /data01/k8s_volume
+mount -t $ip/data01/k8s_volume /data01/k8s_volume #ip地址为nfs server地址
 
 # mkdir -p /opt/jenkins
 

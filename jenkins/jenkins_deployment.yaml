@@ -22,7 +22,7 @@ spec:
         - containerPort: 5000
           name: agent
           protocol: TCP
-        resouces:
+        resources:
           limits:
             cpu: 1000m
             memory: 1Gi
@@ -33,13 +33,13 @@ spec:
           httpGet:
             path: /login
             port: 8080
-          initialDelaySeconds: 60
+          initialDelaySeconds: 60  #初始化启动后60s后启动探针
           timeoutSeconds: 5
           failureThreshold: 12
         volumeMounts:
         - name: jenkinshome
           subPath: jenkins
-          mountPath: /var/jenkins_home
+          mountPath: /var/jenkins_home #持久化存储挂在目录
         env:
         - name: LIMITS_MEMORY
           valueFrom:

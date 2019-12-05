@@ -8,7 +8,7 @@ metadata:
 spec:
   selector:
     app: jenkins
-  type: NodePort
+  type: NodePort #headless
   ports:
   - name: web
     port: 8080
